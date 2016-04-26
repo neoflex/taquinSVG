@@ -1,0 +1,41 @@
+	
+      .trace {
+        fill: none;
+        stroke: black;
+        stroke-width:2;
+		}
+	   .choix {
+	   fill: white;
+        stroke: black;
+        stroke-width:2;   
+	   }
+	   
+	    .choix2 {
+	   fill: white;
+        stroke: black;
+        stroke-width:2;   
+	   }
+	    .choixhover {
+	    fill: white;
+		fill-opacity:0.6;
+        stroke: black;
+        stroke-width:2;   
+	   }
+	    .choixhover2 {
+	    fill: teal;
+		fill-opacity:0.3;
+        stroke: black;
+        stroke-width:2;   
+	   }
+	    .choixvalide {
+	    fill: yellow;
+		fill-opacity:1;
+        stroke: black;
+        stroke-width:2;   
+	   }
+	    .choixvalide2 {
+	    fill: teal;
+		fill-opacity:1;
+        stroke: black;
+        stroke-width:2;   
+	   }

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<?xml-stylesheet href="style.css" type="text/css"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="520px" width="700px">
+
+	<script type="text/ecmascript" xlink:href="./taquin.js"/>
+	<script type="text/ecmascript" xlink:href="./interface.js"/>
+	<script type="text/ecmascript" xlink:href="./ia.js"/>
+	<script type="text/ecmascript" xlink:href="./bfs.js"/>
+	<script type="text/ecmascript" xlink:href="./dfs.js"/>
+	<script type="text/ecmascript" xlink:href="./ids.js"/>
+	<script type="text/ecmascript" xlink:href="./bfsmelange.js"/>
+	<script type="text/ecmascript" xlink:href="./dfsmelange.js"/>
+	<script type="text/ecmascript" xlink:href="./idsmelange.js"/>
+	<script type="text/ecmascript" xlink:href="./mmd.js"/>
+	<g id="lemenu" visibility="visible">
+		<g id="menuexpert" visibility="hidden">
+			<rect x="400" y="50" width="290" height="400" rx="20" style="fill:yellow;stroke:black;stroke-width:3;"/>
+			<text x="460" y="90" font-size="14" font-family="Arial" fill="teal">Choix de l'algorithme de recherche</text>
+			<circle cx="470" cy="120" r="5" cursor="pointer" id="algo1" onclick="choixalgo(evt,1)" onmouseover="surligne2(evt,1,1)" onmouseout="surligne2(evt,1,2)" class="choix2"/>
+			<circle cx="470" cy="145" r="5" cursor="pointer" id="algo2" onclick="choixalgo(evt,2)" onmouseover="surligne2(evt,2,1)" onmouseout="surligne2(evt,2,2)" class="choix2"/>
+			<circle cx="470" cy="170" r="5" cursor="pointer" id="algo3" onclick="choixalgo(evt,3)" onmouseover="surligne2(evt,3,1)" onmouseout="surligne2(evt,3,2)" class="choix2"/>
+			<text x="500" y="125" font-size="14" font-family="Arial" fill="teal">BFS</text>
+			<text x="500" y="150" font-size="14" font-family="Arial" fill="teal">DFS limité</text>
+			<text x="500" y="175" font-size="14" font-family="Arial" fill="teal">IDS</text>
+			<circle cx="470" cy="350" r="5" cursor="pointer" id="algo4" onclick="choixalgo(evt,4)" onmouseover="surligne2(evt,4,1)" onmouseout="surligne2(evt,4,2)" class="choixvalide2"/>
+			<text x="500" y="355" font-size="14" font-family="Arial" fill="teal">A*</text>
+			<rect cursor="pointer" onclick="modeturbo(evt)" x="470" y="200" width="20" rx="2" height="20" fill="white" stroke="black" stroke-width="2"/>
+			<text x="500" y="215" font-size="14" font-family="Arial" fill="teal">Heuristique locale</text>
+			<path visibility="hidden" pointer-events="none" id="lacroix" stroke="teal" stroke-width="2" d="M 470,200 l 20,20 M 470,220 l 20,-20"/>
+			<g id="optionsbfs" visibility="hidden">
+				<text x="460" y="270" font-size="14" font-family="Arial" fill="teal">Profondeur limite :</text>
+				<rect x="500" y="283" width="40" height="20" fill="white" stroke="black" stroke-width="2"/>
+				<text x="520" y="300" id="nbp" text-anchor="middle" font-size="18" font-family="Arial" fill="black">4</text>
+				<rect cursor="pointer" onclick="chval(evt,3,-1)" x="470" y="283" width="20" rx="2" height="20" style="fill:teal;stroke:black;stroke-width:2;"/>
+				<text pointer-events="none" x="480" y="290" text-anchor="middle" font-size="20" font-family="Arial" fill="yellow">_</text>
+				<rect cursor="pointer" onclick="chval(evt,3,1)" x="550" y="283" width="20" rx="2" height="20" style="fill:teal;stroke:black;stroke-width:2;"/>
+				<text pointer-events="none" x="560" y="300" text-anchor="middle" font-size="20" font-family="Arial" fill="yellow">+</text>
+			</g>
+		</g>
+		<rect x="50" y="50" width="400" height="400" rx="20" style="fill:teal;stroke:black;stroke-width:3;"/>
+		<text x="250" y="100" text-anchor="middle" font-size="30" font-family="Arial" fill="white">Configuration</text>
+		<text x="110" y="150" font-size="16" font-family="Arial" fill="white">- Choix de l'image :</text>
+		<circle cursor="pointer" id="choix1" onclick="choiximage(evt,1)" onmouseover="surligne(evt,1,1)" onmouseout="surligne(evt,1,2)" class="choixvalide" cx="65" cy="180" r="5"/>
+		<circle cursor="pointer" id="choix2" onclick="choiximage(evt,2)" onmouseover="surligne(evt,2,1)" onmouseout="surligne(evt,2,2)" class="choix" cx="65" cy="205" r="5"/>
+		<circle cursor="pointer" id="choix3" onclick="choiximage(evt,3)" onmouseover="surligne(evt,3,1)" onmouseout="surligne(evt,3,2)" class="choix" cx="65" cy="230" r="5"/>
+		<circle cursor="pointer" id="choix4" onclick="choiximage(evt,4)" onmouseover="surligne(evt,4,1)" onmouseout="surligne(evt,4,2)" class="choix" cx="250" cy="180" r="5"/>
+		<circle cursor="pointer" id="choix5" onclick="choiximage(evt,5)" onmouseover="surligne(evt,5,1)" onmouseout="surligne(evt,5,2)" class="choix" cx="250" cy="205" r="5"/>
+		<circle cursor="pointer" id="choix6" onclick="choiximage(evt,6)" onmouseover="surligne(evt,6,1)" onmouseout="surligne(evt,6,2)" class="choix" cx="250" cy="230" r="5"/>
+		<text x="90" y="185"  font-size="14" font-family="Arial" fill="white">Poignee de main</text>
+		<text x="90" y="210"  font-size="14" font-family="Arial" fill="white">Telephone casse</text>
+		<text x="90" y="235"  font-size="14" font-family="Arial" fill="white">Smiley</text>
+		<text x="275" y="185"  font-size="14" font-family="Arial" fill="white">Cochon rose</text>
+		<text x="275" y="210"  font-size="14" font-family="Arial" fill="white">Dragon</text>
+		<text x="275" y="235"  font-size="14" font-family="Arial" fill="white">Zobi</text>
+		<text x="110" y="260" font-size="16" font-family="Arial" fill="white">- Choix du nombre de cases :</text>
+		<text x="70" y="310" font-size="14" font-family="Arial" fill="white">Nombre de lignes :</text>
+		<rect x="260" y="283" width="40" height="20" fill="white" stroke="black" stroke-width="2"/>
+		<text x="280" y="300" id="nbl" text-anchor="middle" font-size="18" font-family="Arial" fill="black">3</text>
+		<rect cursor="pointer" onclick="chval(evt,1,-1)" x="230" y="283" width="20" rx="2" height="20" style="fill:yellow;stroke:black;stroke-width:2;"/>
+		<text pointer-events="none" x="240" y="290" text-anchor="middle" font-size="20" font-family="Arial" fill="teal">_</text>
+		<rect cursor="pointer" onclick="chval(evt,1,1)" x="310" y="283" width="20" rx="2" height="20" style="fill:yellow;stroke:black;stroke-width:2;"/>
+		<text pointer-events="none" x="320" y="300" text-anchor="middle" font-size="20" font-family="Arial" fill="teal">+</text>
+		<text x="70" y="340" font-size="14" font-family="Arial" fill="white">Nombre de colonnes :</text>
+		<rect x="260" y="323" width="40" height="20" fill="white" stroke="black" stroke-width="2"/>
+		<text x="280" y="340" id="nbc" text-anchor="middle" font-size="18" font-family="Arial" fill="black">3</text>
+		<rect cursor="pointer" onclick="chval(evt,2,-1)" x="230" y="323" width="20" rx="2" height="20" style="fill:yellow;stroke:black;stroke-width:2;"/>
+		<text pointer-events="none" x="240" y="330" text-anchor="middle" font-size="20" font-family="Arial" fill="teal">_</text>
+		<rect cursor="pointer" onclick="chval(evt,2,1)" x="310" y="323" width="20" rx="2" height="20" style="fill:yellow;stroke:black;stroke-width:2;"/>
+		<text pointer-events="none" x="320" y="340" text-anchor="middle" font-size="20" font-family="Arial" fill="teal">+</text>
+		<text x="70" y="370" font-size="14" font-family="Arial" fill="white">Mélange :</text>
+		<circle cursor="pointer" id="choixm1" onclick="choixm(evt,1)" onmouseover="surligne3(evt,1,1)" onmouseout="surligne3(evt,1,2)" class="choix" cx="145" cy="365" r="5"/>
+		<text x="155" y="370" font-size="14" font-family="Arial" fill="white">Aucun</text>
+		<circle cursor="pointer" id="choixm2" onclick="choixm(evt,2)" onmouseover="surligne3(evt,2,1)" onmouseout="surligne3(evt,2,2)" class="choix" cx="210" cy="365" r="5"/>
+		<text x="220" y="370" font-size="14" font-family="Arial" fill="white">Faible</text>
+		<circle cursor="pointer" id="choixm3" onclick="choixm(evt,3)" onmouseover="surligne3(evt,3,1)" onmouseout="surligne3(evt,3,2)" class="choixvalide" cx="275" cy="365" r="5"/>
+		<text x="285" y="370" font-size="14" font-family="Arial" fill="white">Moyen</text>
+		<circle cursor="pointer" id="choixm4" onclick="choixm(evt,4)" onmouseover="surligne3(evt,4,1)" onmouseout="surligne3(evt,4,2)" class="choix" cx="340" cy="365" r="5"/>
+		<text x="350" y="370" font-size="14" font-family="Arial" fill="white">Elevé</text>
+		
+		
+		
+		<rect cursor="pointer" onclick="valider(evt)" x="200" y="400" width="100" rx="2" height="40" style="fill:yellow;stroke:black;stroke-width:2;"/>
+		<text pointer-events="none" x="250" y="425" text-anchor="middle" font-size="20" font-family="Arial" fill="teal">Valider</text>
+		<text x="65" y="425" font-size="12" font-family="Arial" fill="white">Valentin GROUES</text>
+		<text x="60" y="440" font-size="12" font-family="Arial" fill="white">neoflexx@gmail.com</text>
+		<text id="options" cursor="pointer" onmouseover="survoletexte(evt)" onmouseout="survoletexteout(evt)" onclick="modeavance(evt)" x="320" y="425" font-size="14" font-family="Arial" fill="white">Mode avance &gt;</text>
+	</g>
+	<g id="lesclips"/>
+	<g id="lesimages" onclick="depl(evt)"/>
+	<g id="letroug"/>
+	<g id="lebouton" visibility="hidden">
+		<rect cursor="pointer" onclick="resoudre()" fill="yellow" rx="4" stroke="black" stroke-width="2" x="205" y="400" width="100" height="40"/>
+		<text pointer-events="none" x="255" y="425" text-anchor="middle" font-size="18" font-family="Arial" fill="teal">Resoudre</text>
+	</g>
+	<g id="lemasque" visibility="hidden">
+		<rect x="50" y="50" width="450" height="450" fill="cyan" fill-opacity="0"/>
+	</g>
+	<g id="encours" visibility="hidden">
+	<rect id="encoursr" x="50" y="200" height="30" width="400" fill="yellow" style="stroke:black;stroke-width:2;"/>
+	<text x="250" y="220" text-anchor="middle" font-size="14" font-family="Arial" fill="black">Recherche en cours, patience...</text>
+	</g>
+	
+	<g id="recharge" visibility="hidden">
+		<rect x="50" y="10" height="30" width="400" style="fill:yellow;stroke:black;stroke-width:2;"/>
+		<text x="250" y="30" text-anchor="middle" font-size="14" font-family="Arial" fill="black">Pour rejouer veuillez recharger le document</text>
+	</g>
+	<animateTransform xlink:href="#encoursf" attributeName="transform" attributeType="XML" type="rotate" values="-10 250 215;0 250 215;10 250 215;0 250 215;-10 250 215" dur="3s" repeatCount="indefinite"/>
+	<animateColor xlink:href="#encoursrf" attributeName="fill" values="yellow;red;yellow" dur="3s" repeatCount="indefinite"/>
+</svg>

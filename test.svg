@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<?xml-stylesheet href="style.css" type="text/css"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="520px" width="700px" onload="init(evt);">
+
+	<script type="text/ecmascript"><![CDATA[
+function init(evt){
+alert('coucou');
+svgdoc=evt.target.ownerDocument;
+alert(svgdoc);
+cible=svgdoc.getElementById('lesimages');
+node=svgdoc.createElementNS(null,'image');
+node.setAttributeNS(null,'width','400');
+node.setAttributeNS(null,'height','500');
+node.setAttributeNS(null,'x','10');
+node.setAttributeNS(null,'y','10');
+node.setAttributeNS(null,'id','i1');
+node.setAttributeNS('http://www.w3.org/1999/xlink','xlink:href',"im1.jpg");
+node.setAttributeNS(null,'cursor','pointer');
+cible.appendChild(node);}
+
+]]>
+	</script>
+	<g id="lesimages"/>
+
+</svg>
